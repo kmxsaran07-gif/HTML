@@ -26,7 +26,7 @@ def aes_encrypt_auto_prefix(data: str) -> str:
 def get_player_url(url: str) -> str:
     if "drm" in url and "playlist.m3u8" in url:
         encrypted = aes_encrypt_auto_prefix(url)
-        return f"https://itsgolu-v1player.vercel.app/?url={encrypted}"
+        return f"https://cp-api-repo.vercel.app/ITsGOLU_OFFICIAL?url={url}{encrypted}"
     elif 'zip' in url:
         return f'https://video.pablocoder.eu.org/appx-zip?url={url}'
     elif 'brightcove' in url:
@@ -35,7 +35,7 @@ def get_player_url(url: str) -> str:
     elif 'utkarsh' in url:
         return url
     else:
-        return f'https://itsgolu-v1player.vercel.app/?url={url}'
+        return f'https://cp-api-repo.vercel.app/ITsGOLU_OFFICIAL?url={url}'
 
 client = Client("itsgolu_html_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
@@ -57,7 +57,7 @@ async def start_command(_, message: Message):
         "🔓 /glassmorphism → Glass Effect\n"
         "🔓 /cyberpunk → Neon Tech\n"
         "━━━━━━━━━━━━━━━━━━\n"
-        "👑 By: [ITsGOlU](https://t.me/ITSGOLU_OFFICIAL)"
+        "👑 By: Sᴘᴀʀᴋ ♨"
     )
 
 @client.on_message(filters.command("neumorphic") & filters.private)
@@ -98,7 +98,7 @@ async def process_txt_to_html(client: Client, message: Message, theme: str):
         elif theme == "cyberpunk": await extract_links_cyberpunk(file_path, output_path) # FIXED TYPO
         else: raise ValueError("Invalid theme")
 
-        await msg.reply_document(document=output_path, file_name=f"{original_name}.html", caption=f"✅ Theme: `{theme}` | By ITsGOlU")
+        await msg.reply_document(document=output_path, file_name=f"{original_name}.html", caption=f"✅ Theme: `{theme}` | By kmx ")
     except Exception as e:
         await msg.reply(f"❌ Error: `{str(e)}`")
     finally:

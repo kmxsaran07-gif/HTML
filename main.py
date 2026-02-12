@@ -37,7 +37,7 @@ def get_player_url(url: str) -> str:
     else:
         return f'https://cp-api-repo.vercel.app/ITsGOLU_OFFICIAL?url={url}'
 
-client = Client("itsgolu_html_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+client = Client("kmx_html_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 @client.on_message(filters.command("start") & filters.private)
 async def start_command(_, message: Message):
